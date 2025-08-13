@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Facturas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Gestión de Facturas</h1>
+        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#billModal" onclick="prepareModal('create')">
+            <i class="bi bi-plus-circle"></i> Nueva Factura
+        </button>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Periodo</th>
+                        <th>Monto Facturado</th>
+                        <th>Monto Pagado</th>
+                        <th>Cliente ID</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="billsTableBody">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal fade" id="billModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="billModalLabel">Crear Factura</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form id="billForm">
+                    <div class="modal-body">
+                        <input type="hidden" id="billId">
+                        <div class="mb-3">
+                            <label for="billingPeriod" class="form-label">Periodo de Facturación</label>
+                            <input type="text" class="form-control" id="billingPeriod" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="billdAmount" class="form-label">Monto Facturado</label>
+                            <input type="number" step="0.01" class="form-control" id="billdAmount" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="paidAmount" class="form-label">Monto Pagado</label>
+                            <input type="number" step="0.01" class="form-control" id="paidAmount" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="clientId" class="form-label">ID del Cliente</label>
+                            <input type="number" class="form-control" id="clientId" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Guardar Factura</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html> a 
